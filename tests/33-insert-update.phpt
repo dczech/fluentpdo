@@ -1,7 +1,7 @@
 --TEST--
 INSERT with ON DUPLICATE KEY UPDATE
 --SKIPIF--
-postgres not handles ON DUPLICATE KEY
+postgres does not handle ON DUPLICATE KEY
 --FILE--
 <?php
 include_once dirname(__FILE__) . "/connect.inc.php";

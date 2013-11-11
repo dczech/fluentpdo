@@ -13,10 +13,11 @@ $query = $fpdo->insertInto('article',
 		));
 
 echo $query->getQuery() . "\n";
-$lastInsert = $query->execute();
-
+$lastInsert = $query->execute(true);
+echo $lastInsert > 3 ? 'OK' : 'FAILED', "\n";
 $pdo->query('DELETE FROM article WHERE id > 3')->execute();
 ?>
 --EXPECTF--
 INSERT INTO article (author_id, title, content)
 VALUES (1, 'new title', 'new content')
+OK

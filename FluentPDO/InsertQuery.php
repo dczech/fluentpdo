@@ -25,12 +25,12 @@ class InsertQuery extends BaseQuery {
 	/** Execute insert query
 	 * @return integer last interted id or false
 	 */
-	public function execute() {
+	public function execute($returnLastId = true) {
 		$result = parent::execute();
-		if ($result) {
-			return $this->getPDO()->lastInsertId();
+		if ($result && $returnLastId) {
+			return $this->getPDO()->lastInsertId($this->getStructure()->getSequenceName($this->statements['INSERT INTO']));
 		}
-		return false;
+		return $result;
 	}
 
 	/** Add ON DUPLICATE KEY UPDATE
@@ -67,16 +67,8 @@ class InsertQuery extends BaseQuery {
 		return $this;
 	}
 
-	/** INSERT IGNORE - insert operation fails silently
-	 * @return \InsertQuery
-	 */
-	public function ignore() {
-		$this->ignore = true;
-		return $this;
-	}
-
 	protected function getClauseInsertInto() {
-		return 'INSERT' . ($this->ignore ? " IGNORE" : '') . ' INTO ' . $this->statements['INSERT INTO'];
+		return 'INSERT INTO ' . $this->statements['INSERT INTO'];
 	}
 
 	protected function getClauseValues() {

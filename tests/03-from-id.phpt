@@ -9,6 +9,7 @@ $query = $fpdo->from('author', 2);
 
 echo $query->getQuery() . "\n";
 print_r($query->getParameters());
+print_r($query->fetch());
 ?>
 --EXPECTF--
 SELECT author.*
@@ -17,4 +18,11 @@ WHERE author.id = ?
 Array
 (
     [0] => 2
+)
+Array
+(
+    [id] => 2
+    [country_id] => 1
+    [user_type] => author
+    [name] => Robert
 )

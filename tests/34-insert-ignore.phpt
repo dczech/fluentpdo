@@ -1,5 +1,7 @@
 --TEST--
 insert ignore
+--SKIPIF--
+postgres does not handle INSERT IGNORE
 --FILE--
 <?php
 include_once dirname(__FILE__) . "/connect.inc.php";
@@ -10,11 +12,15 @@ $query = $fpdo->insertInto('article',
 			'author_id' => 1,
 			'title' => 'new title',
 			'content' => 'new content',
-		))->ignore();
+		));
 
 echo $query->getQuery() . "\n";
+$lastInsert = $query->execute(true);
+echo $lastInsert > 3 ? 'OK' : 'FAILED', "\n";
+$pdo->query('DELETE FROM article WHERE id > 3')->execute();
 
 ?>
 --EXPECTF--
-INSERT IGNORE INTO article (author_id, title, content)
+INSERT INTO article (author_id, title, content)
 VALUES (1, 'new title', 'new content')
+OK
