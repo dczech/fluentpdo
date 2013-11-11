@@ -5,7 +5,7 @@ Delete with ORDER BY and LIMIT
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->deleteFrom('user')
+$query = $fpdo->deleteFrom('author')
 	->where('id', 2)
 	->orderBy('name')
 	->limit(1);
@@ -15,7 +15,7 @@ print_r($query->getParameters()) . "\n";
 ?>
 --EXPECTF--
 DELETE
-FROM user
+FROM author
 WHERE id = ?
 ORDER BY name
 LIMIT 1

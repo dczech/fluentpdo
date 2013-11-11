@@ -5,9 +5,9 @@ fetch pairs, fetch all
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$result = $fpdo->from('user')->fetchPairs('id', 'name');
+$result = $fpdo->from('author')->fetchPairs('id', 'name');
 print_r($result);
-$result = $fpdo->from('user')->fetchAll();
+$result = $fpdo->from('author')->fetchAll();
 print_r($result);
 
 ?>
@@ -23,7 +23,7 @@ Array
         (
             [id] => 1
             [country_id] => 1
-            [type] => admin
+            [user_type] => admin
             [name] => Marek
         )
 
@@ -31,7 +31,7 @@ Array
         (
             [id] => 2
             [country_id] => 1
-            [type] => author
+            [user_type] => author
             [name] => Robert
         )
 

@@ -32,7 +32,7 @@ last_inserted_id = 1
 Array
 (
     [id] => 1
-    [user_id] => 1
+    [author_id] => 1
     [published_at] => 2011-12-10 12:10:00
     [title] => article 1b
     [content] => content 1b
@@ -41,7 +41,7 @@ last_inserted_id = 1
 Array
 (
     [id] => 1
-    [user_id] => 1
+    [author_id] => 1
     [published_at] => 2011-12-10 12:10:00
     [title] => article 1
     [content] => content 1

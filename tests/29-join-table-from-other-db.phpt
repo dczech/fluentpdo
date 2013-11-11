@@ -5,14 +5,14 @@ FROM table from other database
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('user')
-		->innerJoin('db2.types ON db2.types.id = user.type')
-		->select('db2.types.*')
+$query = $fpdo->from('author')
+		->innerJoin('db2.user_types ON db2.user_types.id = author.user_type')
+		->select('db2.user_types.*')
 		->getQuery();
 echo "$query\n";
 
 ?>
 --EXPECTF--
-SELECT user.*, db2.types.*
-FROM user
-    INNER JOIN db2.types ON db2.types.id = user.type
+SELECT author.*, db2.user_types.*
+FROM author
+    INNER JOIN db2.user_types ON db2.user_types.id = author.user_type

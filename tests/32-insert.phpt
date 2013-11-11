@@ -7,7 +7,7 @@ include_once dirname(__FILE__) . "/connect.inc.php";
 
 $query = $fpdo->insertInto('article',
 		array(
-			'user_id' => 1,
+			'author_id' => 1,
 			'title' => 'new title',
 			'content' => 'new content'
 		));
@@ -18,5 +18,5 @@ $lastInsert = $query->execute();
 $pdo->query('DELETE FROM article WHERE id > 3')->execute();
 ?>
 --EXPECTF--
-INSERT INTO article (user_id, title, content)
+INSERT INTO article (author_id, title, content)
 VALUES (1, 'new title', 'new content')

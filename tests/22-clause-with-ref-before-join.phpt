@@ -5,20 +5,20 @@ clause with referenced table before join
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('article')->select('user.name')->innerJoin('user');
+$query = $fpdo->from('article')->select('author.name')->innerJoin('author');
 echo $query->getQuery() . "\n";
-$query = $fpdo->from('article')->select('author.name')->innerJoin('user as author');
+$query = $fpdo->from('article')->select('author.name')->innerJoin('author as author');
 echo $query->getQuery() . "\n";
-$query = $fpdo->from('user')->select('article:title')->innerJoin('article:');
+$query = $fpdo->from('author')->select('article:title')->innerJoin('article:');
 echo $query->getQuery() . "\n";
 ?>
 --EXPECTF--
-SELECT article.*, user.name
-FROM article
-    INNER JOIN user ON user.id = article.user_id
 SELECT article.*, author.name
 FROM article
-    INNER JOIN user AS author ON author.id = article.user_id
-SELECT user.*, article.title
-FROM user
-    INNER JOIN article ON article.user_id = user.id
+    INNER JOIN author ON author.id = article.author_id
+SELECT article.*, author.name
+FROM article
+    INNER JOIN author AS author ON author.id = article.author_id
+SELECT author.*, article.title
+FROM author
+    INNER JOIN article ON article.author_id = author.id

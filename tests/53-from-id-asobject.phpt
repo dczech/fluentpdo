@@ -5,19 +5,19 @@ from($table, $id) as stdClass
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('user', 2)->asObject();
+$query = $fpdo->from('author', 2)->asObject();
 
 echo $query->getQuery() . "\n";
 print_r($query->fetch());
 ?>
 --EXPECTF--
-SELECT user.*
-FROM user
-WHERE user.id = ?
+SELECT author.*
+FROM author
+WHERE author.id = ?
 stdClass Object
 (
     [id] => 2
     [country_id] => 1
-    [type] => author
+    [user_type] => author
     [name] => Robert
 )

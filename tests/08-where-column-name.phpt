@@ -5,8 +5,8 @@ where with named :params
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('user')
-		->where('type = :type', array(':type' => 'author'))
+$query = $fpdo->from('author')
+		->where('user_type = :user_type', array(':user_type' => 'author'))
 		->where('id > :id AND name <> :name', array(':id' => 1, ':name' => 'Marek'));
 
 echo $query->getQuery() . "\n";
@@ -16,14 +16,14 @@ foreach ($query as $row) {
 }
 ?>
 --EXPECTF--
-SELECT user.*
-FROM user
-WHERE type = :type
+SELECT author.*
+FROM author
+WHERE user_type = :user_type
     AND id > :id
     AND name <> :name
 Array
 (
-    [:type] => author
+    [:user_type] => author
     [:id] => 1
     [:name] => Marek
 )

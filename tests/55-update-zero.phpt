@@ -6,12 +6,12 @@ include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
 $fpdo->update('article')->set('content', '')->where('id', 1)->execute();
-$user = $fpdo->from('article')->where('id', 1)->fetch();
+$author = $fpdo->from('article')->where('id', 1)->fetch();
 
-echo 'ID: ' . $user['id'] . ' - content: ' . $user['content'] . "\n";
+echo 'ID: ' . $author['id'] . ' - content: ' . $author['content'] . "\n";
 $fpdo->update('article')->set('content', 'content 1')->where('id', 1)->execute();
-$user = $fpdo->from('article')->where('id', 1)->fetch();
-echo 'ID: ' . $user['id'] . ' - content: ' . $user['content'] . "\n";
+$author = $fpdo->from('article')->where('id', 1)->fetch();
+echo 'ID: ' . $author['id'] . ' - content: ' . $author['content'] . "\n";
 ?>
 --EXPECTF--
 ID: 1 - content: 

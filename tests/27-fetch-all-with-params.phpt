@@ -5,7 +5,7 @@ fetch all with params
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$result = $fpdo->from('user')->fetchAll('id', 'type, name');
+$result = $fpdo->from('author')->fetchAll('id', 'user_type, name');
 print_r($result);
 
 ?>
@@ -15,14 +15,14 @@ Array
     [1] => Array
         (
             [id] => 1
-            [type] => admin
+            [user_type] => admin
             [name] => Marek
         )
 
     [2] => Array
         (
             [id] => 2
-            [type] => author
+            [user_type] => author
             [name] => Robert
         )
 

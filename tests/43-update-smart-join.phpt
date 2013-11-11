@@ -5,16 +5,16 @@ Update with smart join
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->update('user')
-	->set(array('type' => 'author'))
+$query = $fpdo->update('author')
+	->set(array('user_type' => 'author'))
 	->where('country.id', 1);
 
 echo $query->getQuery() . "\n";
 print_r($query->getParameters()) . "\n";
 ?>
 --EXPECTF--
-UPDATE user
-    LEFT JOIN country ON country.id = user.country_id SET type = ?
+UPDATE author
+    LEFT JOIN country ON country.id = author.country_id SET user_type = ?
 WHERE country.id = ?
 Array
 (

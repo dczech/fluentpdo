@@ -5,14 +5,14 @@ add FROM after DELETE if doesn't set
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->delete('user', 'id', 1);
+$query = $fpdo->delete('author', 'id', 1);
 echo $query->getQuery() . "\n";
 print_r($query->getParameters()) . "\n";
 
 ?>
 --EXPECTF--
 DELETE
-FROM user
+FROM author
 WHERE id = ?
 Array
 (

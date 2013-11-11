@@ -5,20 +5,20 @@ short join back reference
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('user')->innerJoin('article:');
+$query = $fpdo->from('author')->innerJoin('article:');
 echo $query->getQuery() . "\n";
-$query = $fpdo->from('user')->innerJoin('article: with_articles');
+$query = $fpdo->from('author')->innerJoin('article: with_articles');
 echo $query->getQuery() . "\n";
-$query = $fpdo->from('user')->innerJoin('article: AS with_articles');
+$query = $fpdo->from('author')->innerJoin('article: AS with_articles');
 echo $query->getQuery() . "\n";
 ?>
 --EXPECTF--
-SELECT user.*
-FROM user
-    INNER JOIN article ON article.user_id = user.id
-SELECT user.*
-FROM user
-    INNER JOIN article AS with_articles ON with_articles.user_id = user.id
-SELECT user.*
-FROM user
-    INNER JOIN article AS with_articles ON with_articles.user_id = user.id
+SELECT author.*
+FROM author
+    INNER JOIN article ON article.author_id = author.id
+SELECT author.*
+FROM author
+    INNER JOIN article AS with_articles ON with_articles.author_id = author.id
+SELECT author.*
+FROM author
+    INNER JOIN article AS with_articles ON with_articles.author_id = author.id

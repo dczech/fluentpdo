@@ -5,14 +5,14 @@ where('column', array(..))
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('user')->where('id', array(1,2,3));
+$query = $fpdo->from('author')->where('id', array(1,2,3));
 
 echo $query->getQuery() . "\n";
 print_r($query->getParameters());
 ?>
 --EXPECTF--
-SELECT user.*
-FROM user
+SELECT author.*
+FROM author
 WHERE id IN (1, 2, 3)
 Array
 (

@@ -5,11 +5,11 @@ where('column', null)
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('user')->where('type', null);
+$query = $fpdo->from('author')->where('user_type', null);
 
 echo $query->getQuery() . "\n";
 ?>
 --EXPECTF--
-SELECT user.*
-FROM user
-WHERE type is NULL
+SELECT author.*
+FROM author
+WHERE user_type is NULL

@@ -5,12 +5,12 @@ join in where
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('article')->orderBy('user.name, article.title');
+$query = $fpdo->from('article')->orderBy('author.name, article.title');
 echo $query->getQuery() . "\n";
 
 ?>
 --EXPECTF--
 SELECT article.*
 FROM article
-    LEFT JOIN user ON user.id = article.user_id
-ORDER BY user.name, article.title
+    LEFT JOIN author ON author.id = article.author_id
+ORDER BY author.name, article.title

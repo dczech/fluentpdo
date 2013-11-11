@@ -18,10 +18,10 @@ $fpdo->debug = function($BaseQuery) {
 	// echo $FluentQuery->getTime() . "\n";
 };
 
-$fpdo->from('user')->where('id < ? AND name <> ?', 7, 'Peter')->execute();
+$fpdo->from('author')->where('id < ? AND name <> ?', 7, 'Peter')->execute();
 $fpdo->debug = null;
 ?>
 --EXPECTF--
-query: SELECT user.* FROM user WHERE id < ? AND name <> ?
+query: SELECT author.* FROM author WHERE id < ? AND name <> ?
 parameters: 7, Peter
 rowCount: 2

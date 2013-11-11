@@ -5,8 +5,8 @@ Update with ORDER BY and LIMIT
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->update('user')
-	->set(array('type' => 'author'))
+$query = $fpdo->update('author')
+	->set(array('user_type' => 'author'))
 	->where('id', 2)
 	->orderBy('name')
 	->limit(1);
@@ -15,7 +15,7 @@ echo $query->getQuery() . "\n";
 print_r($query->getParameters()) . "\n";
 ?>
 --EXPECTF--
-UPDATE user SET type = ?
+UPDATE author SET user_type = ?
 WHERE id = ?
 ORDER BY name
 LIMIT 1

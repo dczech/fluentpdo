@@ -1,7 +1,9 @@
 <?php
 // parse command line aruments
-$opts = getopt('v');
+$opts = getopt('d:v::');
+$DBENGINE = $opts['d'];
 $verbose = array_key_exists('v', $opts);
+
 $error = false;
 
 $start = microtime(true);

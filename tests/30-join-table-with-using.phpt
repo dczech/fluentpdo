@@ -8,19 +8,19 @@ $fluent_structure2 = new FluentStructure('%s_id', '%s_id');
 $fpdo2 = new FluentPDO($pdo, $fluent_structure2);
 
 $query = $fpdo2->from('article')
-		->innerJoin('user USING (user_id)')
-		->select('user.*')
+		->innerJoin('author USING (author_id)')
+		->select('author.*')
 		->getQuery();
 echo "$query\n";
 
 $query = $fpdo2->from('article')
-		->innerJoin('user u USING (user_id)')
+		->innerJoin('author u USING (author_id)')
 		->select('u.*')
 		->getQuery();
 echo "$query\n";
 
 $query = $fpdo2->from('article')
-		->innerJoin('user AS u USING (user_id)')
+		->innerJoin('author AS u USING (author_id)')
 		->select('u.*')
 		->getQuery();
 echo "$query\n";
@@ -30,12 +30,12 @@ unset($fpdo2);
 
 ?>
 --EXPECTF--
-SELECT article.*, user.*
+SELECT article.*, author.*
 FROM article
-    INNER JOIN user USING (user_id)
+    INNER JOIN author USING (author_id)
 SELECT article.*, u.*
 FROM article
-    INNER JOIN user u USING (user_id)
+    INNER JOIN author u USING (author_id)
 SELECT article.*, u.*
 FROM article
-    INNER JOIN user AS u USING (user_id)
+    INNER JOIN author AS u USING (author_id)

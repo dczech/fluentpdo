@@ -5,11 +5,11 @@ join same two tables
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('comment')->leftJoin('article.user');
+$query = $fpdo->from('opinion')->leftJoin('article.author');
 echo $query->getQuery() . "\n";
 ?>
 --EXPECTF--
-SELECT comment.*
-FROM comment
-    LEFT JOIN article ON article.id = comment.article_id
-    LEFT JOIN user ON user.id = article.user_id
+SELECT opinion.*
+FROM opinion
+    LEFT JOIN article ON article.id = opinion.article_id
+    LEFT JOIN author ON author.id = article.author_id

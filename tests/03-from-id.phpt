@@ -5,15 +5,15 @@ from($table, $id)
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->from('user', 2);
+$query = $fpdo->from('author', 2);
 
 echo $query->getQuery() . "\n";
 print_r($query->getParameters());
 ?>
 --EXPECTF--
-SELECT user.*
-FROM user
-WHERE user.id = ?
+SELECT author.*
+FROM author
+WHERE author.id = ?
 Array
 (
     [0] => 2

@@ -5,7 +5,7 @@ Basic delete
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
-$query = $fpdo->deleteFrom('user')
+$query = $fpdo->deleteFrom('author')
 	->where('id', 1);
 
 echo $query->getQuery() . "\n";
@@ -13,7 +13,7 @@ print_r($query->getParameters()) . "\n";
 ?>
 --EXPECTF--
 DELETE
-FROM user
+FROM author
 WHERE id = ?
 Array
 (
