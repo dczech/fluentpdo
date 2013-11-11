@@ -32,7 +32,7 @@ DROP TABLE IF EXISTS article CASCADE;
 CREATE TABLE article (
   id serial NOT NULL,
   author_id int NOT NULL,
-  published_at TIMESTAMP NOT NULL,
+  published_at TIMESTAMP NOT NULL DEFAULT now(),
   title varchar(100) NOT NULL DEFAULT '',
   content text NOT NULL DEFAULT '',
   PRIMARY KEY (id),
