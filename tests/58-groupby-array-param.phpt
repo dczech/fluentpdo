@@ -6,7 +6,7 @@ include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
 $query = $fpdo
-	->from('user')
+	->from('author')
 	->select(null)
 	->select('count(*) AS total_count')
 	->groupBy(array('id', 'name'));
@@ -16,7 +16,7 @@ print_r($query->fetch());
 ?>
 --EXPECTF--
 SELECT count(*) AS total_count
-FROM user
+FROM author
 GROUP BY id,name
 Array
 (

@@ -6,7 +6,7 @@ include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
 $query = $fpdo
-	->from('user')
+	->from('author')
 	->select(null)
 	->select(array('id', 'name'))
 	->where('id < ?', 2);
@@ -17,7 +17,7 @@ print_r($query->fetch());
 ?>
 --EXPECTF--
 SELECT id, name
-FROM user
+FROM author
 WHERE id < ?
 Array
 (
