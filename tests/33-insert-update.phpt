@@ -6,7 +6,7 @@ postgres does not handle ON DUPLICATE KEY
 <?php
 include_once dirname(__FILE__) . "/connect.inc.php";
 /** @var $fpdo FluentPDO */
-
+/*
 $query = $fpdo->insertInto('article', array('id' => 1))
 		->onDuplicateKeyUpdate(array(
 			'title' => 'article 1b',
@@ -25,6 +25,7 @@ $query = $fpdo->insertInto('article', array('id' => 1))
 echo "last_inserted_id = $query\n";
 $q = $fpdo->from('article', 1)->fetch();
 print_r($q);
+*/
 ?>
 --EXPECTF--
 INSERT INTO article (id)

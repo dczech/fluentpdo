@@ -8,13 +8,10 @@ class InsertQuery extends BaseQuery {
 
 	private $firstValue = array();
 
-	private $ignore = false;
-
 	public function __construct(FluentPDO $fpdo, $table, $values) {
 		$clauses = array(
 			'INSERT INTO' => array($this, 'getClauseInsertInto'),
 			'VALUES' => array($this, 'getClauseValues'),
-			'ON DUPLICATE KEY UPDATE' => array($this, 'getClauseOnDuplicateKeyUpdate'),
 		);
 		parent::__construct($fpdo, $clauses);
 
@@ -31,17 +28,6 @@ class InsertQuery extends BaseQuery {
 			return $this->getPDO()->lastInsertId($this->getStructure()->getSequenceName($this->statements['INSERT INTO']));
 		}
 		return $result;
-	}
-
-	/** Add ON DUPLICATE KEY UPDATE
-	 * @param array $values
-	 * @return \InsertQuery
-	 */
-	public function onDuplicateKeyUpdate($values) {
-		$this->statements['ON DUPLICATE KEY UPDATE'] = array_merge(
-			$this->statements['ON DUPLICATE KEY UPDATE'], $values
-		);
-		return $this;
 	}
 
 	/**
@@ -81,15 +67,6 @@ class InsertQuery extends BaseQuery {
 		$values = implode(', ', $valuesArray);
 		return " ($columns) VALUES $values";
 	}
-
-	protected function getClauseOnDuplicateKeyUpdate() {
-		$result = array();
-		foreach ($this->statements['ON DUPLICATE KEY UPDATE'] as $key => $value) {
-			$result[] = "$key = " . $this->quote($value);
-		}
-		return ' ON DUPLICATE KEY UPDATE ' . implode(', ', $result);
-	}
-
 
 	private function addOneValue($oneValue) {
 		# check if all $keys are strings

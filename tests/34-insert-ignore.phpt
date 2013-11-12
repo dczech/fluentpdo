@@ -6,7 +6,7 @@ postgres does not handle INSERT IGNORE
 <?php
 include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
-
+/*
 $query = $fpdo->insertInto('article',
 		array(
 			'author_id' => 1,
@@ -18,7 +18,7 @@ echo $query->getQuery() . "\n";
 $lastInsert = $query->execute(true);
 echo $lastInsert > 3 ? 'OK' : 'FAILED', "\n";
 $pdo->query('DELETE FROM article WHERE id > 3')->execute();
-
+*/
 ?>
 --EXPECTF--
 INSERT INTO article (author_id, title, content)
