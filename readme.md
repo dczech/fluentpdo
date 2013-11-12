@@ -1,4 +1,4 @@
-# FluentPDO
+# FluentPDO (pgsql)
 
 [![Build Status](https://secure.travis-ci.org/dczech/fluentpdo.png?branch=master,pgsql)](http://travis-ci.org/dczech/fluentpdo)
 
@@ -26,7 +26,7 @@ Add in your `composer.json`:
 
 	"require": {
 		...
-		"lichtner/fluentpdo": "dev-master"	
+		"dczech/fluentpdo": "dev-pgsql"	
 	}
 
 then update your dependencies with `composer update`.

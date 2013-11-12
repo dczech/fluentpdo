@@ -1,6 +1,6 @@
 {
-	"name": "lichtner/fluentpdo",
-	"description": "FluentPDO is small PHP library for rapid query building. Killer feature is smart join builder which generates joins automatically.",
+	"name": "dczech/fluentpdo",
+	"description": "FluentPDO (pgsql) is small PHP library for rapid query building. Killer feature is smart join builder which generates joins automatically.",
 	"keywords": ["database", "dbal", "pdo"],
 	"homepage": "http://fluentpdo.com/",
 	"license": ["Apache-2.0", "GPL-2.0+"],
@@ -8,8 +8,15 @@
 		{
 			"name": "Marek Lichtner",
 			"homepage": "http://licht.sk/"
-		}
+		},
+        {
+            "name": "Dariusz Czech",
+            "email": "dczech@gmail.com"
+        }
 	],
+    "require" : {
+        "php" : ">=5.3.3",
+    }
 	"autoload": {
 		"files": ["FluentPDO/FluentPDO.php"]
 	}
