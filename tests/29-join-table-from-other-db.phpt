@@ -13,6 +13,6 @@ echo "$query\n";
 
 ?>
 --EXPECTF--
-SELECT author.*, db2.user_types.*
+SELECT db2.user_types.*
 FROM author
     INNER JOIN db2.user_types ON db2.user_types.id = author.user_type

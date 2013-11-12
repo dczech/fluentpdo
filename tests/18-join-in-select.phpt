@@ -10,6 +10,6 @@ echo $query->getQuery() . "\n";
 
 ?>
 --EXPECTF--
-SELECT article.*, author.name as author
+SELECT author.name as author
 FROM article
     LEFT JOIN author ON author.id = article.author_id

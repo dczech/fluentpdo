@@ -29,19 +29,19 @@ echo "-- Disable and enable:\n$query\n\n";
 ?>
 --EXPECTF--
 -- Plain:
-SELECT opinion.*, author.name
+SELECT author.name
 FROM opinion
     LEFT JOIN author ON author.id = opinion.author_id
     LEFT JOIN article ON article.id = opinion.article_id
 ORDER BY article.published_at
 
 -- Disable:
-SELECT opinion.*, author.name
+SELECT author.name
 FROM opinion
 ORDER BY article.published_at
 
 -- Disable and enable:
-SELECT opinion.*, author.name
+SELECT author.name
 FROM opinion
     LEFT JOIN author ON author.id = opinion.author_id
     LEFT JOIN article ON article.id = opinion.article_id

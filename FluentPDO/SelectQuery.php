@@ -39,7 +39,6 @@ class SelectQuery extends CommonQuery {
 		$this->fromAlias = end($fromParts);
 
 		$this->statements['FROM'] = $from;
-		$this->statements['SELECT'][] = $this->fromAlias . '.*';
 		$this->joins[] = $this->fromAlias;
 	}
 
@@ -129,5 +128,12 @@ class SelectQuery extends CommonQuery {
 		}
 	}
 
+	protected function buildQuery() {
+	    if (empty($this->statements['SELECT'])) {
+	        $this->statements['SELECT'][] = $this->fromAlias . '.*';
+	    }
+
+	    return parent::buildQuery();
+	}
 }
 

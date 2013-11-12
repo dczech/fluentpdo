@@ -23,6 +23,6 @@ FROM author AS author
 SELECT author.*
 FROM author AS author
 WHERE author.id = ?
-SELECT author.*, country.name
+SELECT country.name
 FROM author AS author
     LEFT JOIN country ON country.id = author AS author.country_id

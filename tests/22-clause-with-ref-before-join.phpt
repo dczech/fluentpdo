@@ -13,12 +13,12 @@ $query = $fpdo->from('author')->select('article:title')->innerJoin('article:');
 echo $query->getQuery() . "\n";
 ?>
 --EXPECTF--
-SELECT article.*, author.name
+SELECT author.name
 FROM article
     INNER JOIN author ON author.id = article.author_id
-SELECT article.*, author.name
+SELECT author.name
 FROM article
     INNER JOIN author AS author ON author.id = article.author_id
-SELECT author.*, article.title
+SELECT article.title
 FROM author
     INNER JOIN article ON article.author_id = author.id

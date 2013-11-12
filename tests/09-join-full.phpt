@@ -6,7 +6,7 @@ include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
 $query = $fpdo->from('article')
-		->select('author.name')
+		->select(array('article.*', 'author.name'))
 		->leftJoin('author ON author.id = article.author_id')
 		->orderBy('article.title');
 

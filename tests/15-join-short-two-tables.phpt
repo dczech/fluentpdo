@@ -6,6 +6,7 @@ include_once dirname(__FILE__) . "/connect.inc.php";
 /* @var $fpdo FluentPDO */
 
 $query = $fpdo->from('opinion')
+        ->select('opinion.*')
 		->where('opinion.id', 1)
 		->leftJoin('author opinion_author')->select('opinion_author.name AS opinion_name')
 		->leftJoin('article.author AS article_author')->select('article_author.name AS author_name');
