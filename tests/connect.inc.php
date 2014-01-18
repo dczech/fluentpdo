@@ -1,4 +1,5 @@
 <?php
+use FluentPDO\FluentPDO;
 error_reporting(E_ALL | E_STRICT);
 include dirname(__FILE__) . "/../vendor/autoload.php";
 
