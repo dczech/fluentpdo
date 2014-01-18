@@ -2,6 +2,7 @@
 
 namespace FluentPDO;
 
+use \PDO;
 /** Base query builder
  */
 abstract class BaseQuery implements \IteratorAggregate {

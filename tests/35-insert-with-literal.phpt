@@ -3,6 +3,7 @@ insert with literal
 --FILE--
 <?php
 include_once dirname(__FILE__) . "/connect.inc.php";
+use FluentPDO\FluentLiteral;
 /* @var $fpdo FluentPDO */
 
 $query = $fpdo->insertInto('article',

@@ -3,6 +3,7 @@ Basic update
 --FILE--
 <?php
 include_once dirname(__FILE__) . "/connect.inc.php";
+use FluentPDO\FluentLiteral;
 /* @var $fpdo FluentPDO */
 
 $query = $fpdo->update('article')->set('published_at', new FluentLiteral('NOW()'))->where('author_id', 1);

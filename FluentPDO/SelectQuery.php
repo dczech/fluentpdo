@@ -1,7 +1,7 @@
 <?php
 
 namespace FluentPDO;
-
+use \PDO;
 /**
  * SELECT query builder
  *

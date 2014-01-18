@@ -3,6 +3,8 @@ join using USING
 --FILE--
 <?php
 include_once dirname(__FILE__) . "/connect.inc.php";
+use FluentPDO\FluentStructure;
+use FluentPDO\FluentPDO;
 /* @var $fpdo2 FluentPDO */
 $fluent_structure2 = new FluentStructure('%s_id', '%s_id');
 $fpdo2 = new FluentPDO($pdo, $fluent_structure2);
