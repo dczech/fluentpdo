@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 /** Base query builder
  */
 abstract class BaseQuery implements IteratorAggregate {

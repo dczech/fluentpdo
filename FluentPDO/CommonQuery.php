@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 /** CommonQuery add JOIN and WHERE clauses for (SELECT, UPDATE, DELETE)
  */
 abstract class CommonQuery extends BaseQuery {

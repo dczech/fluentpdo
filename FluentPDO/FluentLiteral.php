@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 /** SQL literal value
  */
 class FluentLiteral {

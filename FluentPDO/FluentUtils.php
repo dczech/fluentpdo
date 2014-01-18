@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 class FluentUtils {
 
 	/** Convert "camelCaseWord" to "CAMEL CASE WORD"

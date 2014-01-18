@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 /** UPDATE query builder
  *
  */

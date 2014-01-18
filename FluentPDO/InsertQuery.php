@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 /** INSERT query builder
  */
 class InsertQuery extends BaseQuery {

@@ -11,16 +11,9 @@
  * @license http://www.gnu.org/licenses/gpl-2.0.html GNU General Public License, version 2 (one or other)
  */
 
-include_once 'FluentStructure.php';
-include_once 'FluentUtils.php';
-include_once 'FluentLiteral.php';
-include_once 'BaseQuery.php';
-include_once 'CommonQuery.php';
-include_once 'SelectQuery.php';
-include_once 'InsertQuery.php';
-include_once 'UpdateQuery.php';
-include_once 'DeleteQuery.php';
+namespace FluentPDO;
 
+use \PDO;
 class FluentPDO {
 
 	private $pdo, $structure;
@@ -125,7 +118,7 @@ class FluentPDO {
 		return $this->pdo;
 	}
 
-	/** @return \FluentStructure
+	/** @return FluentStructure
 	 */
 	public function getStructure() {
 		return $this->structure;

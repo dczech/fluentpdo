@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 class FluentStructure {
 
 	private $primaryKey, $foreignKey, $sequenceKey;

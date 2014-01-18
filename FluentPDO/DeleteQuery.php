@@ -1,5 +1,7 @@
 <?php
 
+namespace FluentPDO;
+
 /** DELETE query builder
  *
  */
