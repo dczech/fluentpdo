@@ -4,7 +4,7 @@ namespace FluentPDO;
 
 /** Base query builder
  */
-abstract class BaseQuery implements IteratorAggregate {
+abstract class BaseQuery implements \IteratorAggregate {
 
 	/** @var FluentPDO */
 	private $fpdo;
