@@ -8,5 +8,5 @@ script: /usr/bin/env php tests/run-tests.php
 before_script:
   - createdb fblog -U postgres
   - psql fblog postgres < tests/fblog.sql
-  - composer install --prefer-dist --dev
-  - ls -l *
+  - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev install
+  - ls -l vendor/*
