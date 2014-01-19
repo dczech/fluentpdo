@@ -9,4 +9,3 @@ before_script:
   - createdb fblog -U postgres
   - psql fblog postgres < tests/fblog.sql
   - COMPOSER_ROOT_VERSION=dev-master composer --prefer-source --dev install
-  - ls -l vendor/*
