@@ -6,6 +6,7 @@ php:
   - 5.3.3
 script: php tests/run-tests.php
 before_script:
-  - composer install
+  - composer install -vvv
+  - cat vendor/composer/autoload_psr.php
   - createdb fblog -U postgres
   - psql fblog postgres < tests/fblog.sql
